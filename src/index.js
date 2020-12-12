@@ -88,9 +88,10 @@ console.log(updated) // [1, 20, 3]
 // Use imported Map function to create a map/hashmap which is like a JS object...a container for key-value pairs, but the MAP object from the IMMUTABLE library is immutable, which means we need to wrap our regular JS objects in the Map function to get a MAP object 
 
 
-let book = Map({title: "harry potter"});
+
 
 //USING IMMUTABLE
+//let book = Map({title: "harry potter"});
 // console.log('book = ', book.get("title"));
 // //for other libraries that expect regular JS functions, need to use the toJS function to get the original object back 
 // console.log('JS book = ', book.toJS().title);
@@ -107,6 +108,7 @@ let book = Map({title: "harry potter"});
 
 //USING IMMER
 
+let book = {title: "harry potter"};
 function publish() {
   //produce will return the updated object 
   return produce(book, draftBook => {
@@ -115,3 +117,6 @@ function publish() {
     draftBook.isPublished = true;
   })
 }
+
+let updatedBook = publish(book);
+console.log('updatedBook = ', updatedBook)
