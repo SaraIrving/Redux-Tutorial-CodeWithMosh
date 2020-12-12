@@ -1,3 +1,5 @@
+import { compose, pipe } from "lodash/fp" // fp = functional programming
+
 console.log("Hello World!");
 
 function sayHello() {
@@ -26,5 +28,11 @@ const trim = str => str.trim();
 const wrapInDiv = str => `<div>${str}</div>`;
 const toLowerCase = str => str.toLowerCase();
 
+// compose takes functions as arguments and returns a new function which is the composition of all the given functions, is a higher order function
+// code must be read R-L to get the right order of functions
+const transform = compose(wrapInDiv, toLowerCase, trim);
+transform(input);
+
 const result = wrapInDiv(toLowerCase(trim(input))); //in functional programming this is called function composition
 
+// use Lodash library to simplify 
