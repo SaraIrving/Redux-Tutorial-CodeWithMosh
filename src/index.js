@@ -84,13 +84,15 @@ console.log(updated) // [1, 20, 3]
 
 // IMMUTABILITY
 // Use Immutable JS library to get access to a bunch of immutable data structures
+// Use imported Map function to create a map/hashmap which is like a JS object...a container for key-value pairs, but the MAP object from the IMMUTABLE library is immutable, which means we need to wrap our regular JS objects in the Map function to get a MAP object 
 
-let book = {title: "harry potter"};
 
-function publish(book) {
-  book.isPublished = true;
-}
+let book = Map({title: "harry potter"});
 
-publish(book);
+// function publish(book) {
+//   book.isPublished = true;
+// }
+
+// publish(book);
 
 console.log('book = ', book);
