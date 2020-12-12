@@ -1,5 +1,6 @@
-import { compose, pipe } from "lodash/fp" // fp = functional programming
-import { Map } from "immutable"
+import { compose, pipe } from "lodash/fp"; // fp = functional programming
+import { Map } from "immutable";
+import { produce } from "immer";
 
 console.log("Hello World!");
 
@@ -89,16 +90,28 @@ console.log(updated) // [1, 20, 3]
 
 let book = Map({title: "harry potter"});
 
-console.log('book = ', book.get("title"));
-//for other libraries that expect regular JS functions, need to use the toJS function to get the original object back 
-console.log('JS book = ', book.toJS().title);
+//USING IMMUTABLE
+// console.log('book = ', book.get("title"));
+// //for other libraries that expect regular JS functions, need to use the toJS function to get the original object back 
+// console.log('JS book = ', book.toJS().title);
 
-//now to add a property to an immutable object we need to use the SET method
+// //now to add a property to an immutable object we need to use the SET method
 
-function publish(book) {
-  return book.set('isPublished', true);
+// function publish(book) {
+//   return book.set('isPublished', true);
+// }
+
+// book = publish(book);
+
+// console.log('book after published = ', book.toJS())
+
+//USING IMMER
+
+function publish() {
+  //produce will return the updated object 
+  return produce(book, draftBook => {
+    // draftBook is a copy of book to which all changes are applied
+    // easier than using spread operator 
+    draftBook.isPublished = true;
+  })
 }
-
-book = publish(book);
-
-console.log('book after published = ', book.toJS())
