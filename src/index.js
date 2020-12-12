@@ -30,7 +30,9 @@ const toLowerCase = str => str.toLowerCase();
 
 // compose takes functions as arguments and returns a new function which is the composition of all the given functions, is a higher order function
 // code must be read R-L to get the right order of functions
-const transform = compose(wrapInDiv, toLowerCase, trim);
+
+//const transform = compose(wrapInDiv, toLowerCase, trim);
+const transform = pipe(trim, toLowerCase, wrapInDiv);
 transform(input);
 
 const result = wrapInDiv(toLowerCase(trim(input))); //in functional programming this is called function composition
