@@ -96,3 +96,5 @@ let book = Map({title: "harry potter"});
 // publish(book);
 
 console.log('book = ', book.get("title"));
+//for other libraries that expect regular JS functions, need to use the toJS function to get the original object back 
+console.log('JS book = ', book.toJS().title);
