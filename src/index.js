@@ -14,8 +14,8 @@ let message = fn();
 //higher order functions take a function as an argument, or return a function, or both!
 
 //map is a higher order function 
-let numbers = [1,2,3];
-numbers.map(number => number * 2);
+// let numbers = [1,2,3];
+// numbers.map(number => number * 2);
 
 //setTimeout is also a higher order function because it takes a function as an argument
 
@@ -57,3 +57,20 @@ console.log(updated);
 //BEWARE both Object.assign and spread make a SHALLOW COPY!! careful when working with nested objects, will update other sources of the object as well (often unintentionally) 
 // solve this issue by doing a DEEP COPY, may need multiple spread operators, then it will not modify the original you are referencing 
 // there are libraries you can specifically use for immutability 
+
+//IMMUTABILITY WITH ARRAYS
+const numbers = [1,2,3];
+
+const index = numbers.indexOf(2);
+// now add in the number 2 and the second position, remember slice returns an array up to but not including the second index position
+
+const added = [...numbers.slice(0, index),
+                4, 
+                ...numbers.slice(index)];
+
+console.log(added); //[1,4,2,3]
+
+//removing from an array
+// filter returns an array with all the elements that evaluate to true in the callback function 
+const removed = numbers.filter(n => n !== 2);
+console.log(removed); // [1,3]
