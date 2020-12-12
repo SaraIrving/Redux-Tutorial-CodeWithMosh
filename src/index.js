@@ -26,14 +26,14 @@ let output = "<div>" + input.trim() + "</div>";
 
 const trim = str => str.trim();
 
-const wrap = (type, str) => `<${type}>${str}</${type}>`;
+const wrap = type => str => `<${type}>${str}</${type}>`;
 const toLowerCase = str => str.toLowerCase();
 
 // compose takes functions as arguments and returns a new function which is the composition of all the given functions, is a higher order function
 // code must be read R-L to get the right order of functions
 
 //const transform = compose(wrapInDiv, toLowerCase, trim);
-const transform = pipe(trim, toLowerCase, wrap);
+const transform = pipe(trim, toLowerCase, wrap("div"));
 
 // string is showing up as undefined in the browser console, having an issue with the multiple arguments expected at the end of pipe for wrap...solve with "Currying"
 console.log(transform(input));
