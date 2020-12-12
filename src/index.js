@@ -89,12 +89,16 @@ console.log(updated) // [1, 20, 3]
 
 let book = Map({title: "harry potter"});
 
-// function publish(book) {
-//   book.isPublished = true;
-// }
-
-// publish(book);
-
 console.log('book = ', book.get("title"));
 //for other libraries that expect regular JS functions, need to use the toJS function to get the original object back 
 console.log('JS book = ', book.toJS().title);
+
+//now to add a property to an immutable object we need to use the SET method
+
+function publish(book) {
+  return book.set('isPublished', true);
+}
+
+book = publish(book);
+
+console.log('book after published = ', book.toJS())
