@@ -53,3 +53,7 @@ console.log(update);
 //Now using the spread operator 
 const updated = {...person, name: "Fiona"};
 console.log(updated);
+
+//BEWARE both Object.assign and spread make a SHALLOW COPY!! careful when working with nested objects, will update other sources of the object as well (often unintentionally) 
+// solve this issue by doing a DEEP COPY, may need multiple spread operators, then it will not modify the original you are referencing 
+// there are libraries you can specifically use for immutability 
