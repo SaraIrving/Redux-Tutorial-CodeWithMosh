@@ -41,3 +41,11 @@ console.log(transform(input));
 // const result = wrapInDiv(toLowerCase(trim(input))); //in functional programming this is called function composition
 
 // use Lodash library to simplify 
+
+//When updating objects, better to take copy of the original than directly update
+//use Object.assign or the spread operator
+
+//With Object.assign, pass an empty object, the object to copy, and then optionally an object with updated values, will return the new updated object
+const person = { name: "john"};
+const update = Object.assign({}, person, {name: "bob", age: 30});
+console.log(update);
