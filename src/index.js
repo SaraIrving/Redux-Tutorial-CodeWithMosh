@@ -107,7 +107,6 @@ console.log(updated) // [1, 20, 3]
 // console.log('book after published = ', book.toJS())
 
 //USING IMMER
-
 let book = {title: "harry potter"};
 function publish() {
   //produce will return the updated object 
@@ -120,3 +119,26 @@ function publish() {
 
 let updatedBook = publish(book);
 console.log('updatedBook = ', updatedBook)
+
+//REDUX
+// stores all state in JS object, cannot directly mutate it because Redux is built on top of functional programming principles, Store will be an immutable object
+// instead of directly mutating it you should build a function which takes in the store as an argument and returns the updated store via the spread operator or one of the immutability libraries we used above
+// these functions are called **REDUCERS**
+  // reducers also need to take in an action so it knows which property of the store to update 
+  // may have many reducers that update different slices of the store 
+  //reducers are pure functions
+// The store object has a dispatch method that takes in the action, this will then call the reducer. We do not work with Reducers directly, we just interact with the store. 
+  //then reducer computes the new state and returns it
+  //next the store will set the state internally and then notify the UI components about the update
+  // UI components will then pull out the updated data and refresh what is being shown on the browser 
+// Dispatching the actions allows all events tha occur to enter in via the same place in the store, easier to control, can log every action that has been dispatched, also makes it easy to implement undo/redo mechanisms
+
+/*
+REDUX applications: 
+1- Design the store
+2- Define the actions
+3- Create 1+ reducers
+4- Set up the store based on your reducers
+
+- add redux to your project, use v 4.0 
+*/
