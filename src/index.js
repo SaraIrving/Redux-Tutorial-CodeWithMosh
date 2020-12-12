@@ -79,3 +79,16 @@ console.log(removed); // [1,3]
 //Map method
 const updated = numbers.map (n => (n === 2 ? 20 : n));
 console.log(updated) // [1, 20, 3]
+
+
+// IMMUTABILITY
+
+let book = {title: "harry potter"};
+
+function publish(book) {
+  book.isPublished = true;
+}
+
+publish(book);
+
+console.log('book = ', book);
