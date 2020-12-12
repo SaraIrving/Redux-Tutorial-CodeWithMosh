@@ -25,16 +25,17 @@ let input = " Javascript ";
 let output = "<div>" + input.trim() + "</div>";
 
 const trim = str => str.trim();
-const wrapInDiv = str => `<div>${str}</div>`;
+
+const wrap = (type, str) => `<${type}>${str}</${type}>`;
 const toLowerCase = str => str.toLowerCase();
 
 // compose takes functions as arguments and returns a new function which is the composition of all the given functions, is a higher order function
 // code must be read R-L to get the right order of functions
 
 //const transform = compose(wrapInDiv, toLowerCase, trim);
-const transform = pipe(trim, toLowerCase, wrapInDiv);
+const transform = pipe(trim, toLowerCase, wrap);
 transform(input);
 
-const result = wrapInDiv(toLowerCase(trim(input))); //in functional programming this is called function composition
+// const result = wrapInDiv(toLowerCase(trim(input))); //in functional programming this is called function composition
 
 // use Lodash library to simplify 
