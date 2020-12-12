@@ -95,4 +95,4 @@ let book = Map({title: "harry potter"});
 
 // publish(book);
 
-console.log('book = ', book);
+console.log('book = ', book.get("title"));
