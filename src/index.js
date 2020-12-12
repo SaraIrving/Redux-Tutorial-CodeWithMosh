@@ -49,3 +49,7 @@ console.log(transform(input));
 const person = { name: "john"};
 const update = Object.assign({}, person, {name: "bob", age: 30});
 console.log(update);
+
+//Now using the spread operator 
+const updated = {...person, name: "Fiona"};
+console.log(updated);
