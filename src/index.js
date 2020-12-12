@@ -34,7 +34,9 @@ const toLowerCase = str => str.toLowerCase();
 
 //const transform = compose(wrapInDiv, toLowerCase, trim);
 const transform = pipe(trim, toLowerCase, wrap);
-transform(input);
+
+// string is showing up as undefined in the browser console, having an issue with the multiple arguments expected at the end of pipe for wrap...solve with "Currying"
+console.log(transform(input));
 
 // const result = wrapInDiv(toLowerCase(trim(input))); //in functional programming this is called function composition
 
