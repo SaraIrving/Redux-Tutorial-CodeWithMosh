@@ -1,4 +1,5 @@
 import { compose, pipe } from "lodash/fp" // fp = functional programming
+import { Map } from "immutable"
 
 console.log("Hello World!");
 
@@ -82,6 +83,7 @@ console.log(updated) // [1, 20, 3]
 
 
 // IMMUTABILITY
+// Use Immutable JS library to get access to a bunch of immutable data structures
 
 let book = {title: "harry potter"};
 
