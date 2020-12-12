@@ -51,8 +51,8 @@ const update = Object.assign({}, person, {name: "bob", age: 30});
 console.log(update);
 
 //Now using the spread operator 
-const updated = {...person, name: "Fiona"};
-console.log(updated);
+//const updated = {...person, name: "Fiona"};
+//console.log(updated);
 
 //BEWARE both Object.assign and spread make a SHALLOW COPY!! careful when working with nested objects, will update other sources of the object as well (often unintentionally) 
 // solve this issue by doing a DEEP COPY, may need multiple spread operators, then it will not modify the original you are referencing 
@@ -74,3 +74,8 @@ console.log(added); //[1,4,2,3]
 // filter returns an array with all the elements that evaluate to true in the callback function 
 const removed = numbers.filter(n => n !== 2);
 console.log(removed); // [1,3]
+
+// updating an array
+//Map method
+const updated = numbers.map (n => (n === 2 ? 20 : n));
+console.log(updated) // [1, 20, 3]
