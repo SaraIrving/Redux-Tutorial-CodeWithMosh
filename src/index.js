@@ -2,7 +2,7 @@ import { compose, pipe } from "lodash/fp"; // fp = functional programming
 import { Map } from "immutable";
 import { produce } from "immer";
 import store from "./store";
-import { bugAdded } from './actions';
+import { bugAdded, bugRemoved } from './actions';
 
 console.log("Hello World!");
 
@@ -187,20 +187,24 @@ const unsubscribe = store.subscribe(() => {
 // refactor to use bugAdded function instead of hard coding action object
 // give it the description as an argument 
 store.dispatch(bugAdded('Bug 1'));
+console.log("after the first dispatch!")
 
 
 unsubscribe();
+
+
 //now the state has an object in it
 console.log('store after dispatch 1 = ', store.getState())
 
 //remove the bug from the state
-store.dispatch({
-  type: actions.BUG_REMOVED,
-  payload: {
-    id: 1
-  }
-})
+// store.dispatch({
+//   type: actions.BUG_REMOVED,
+//   payload: {
+//     id: 1
+//   }
+// })
 
+store.dispatch(bugRemoved(1))
 console.log('store after dispatch 2 = ', store.getState());
 
 
