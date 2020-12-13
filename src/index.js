@@ -164,6 +164,18 @@ Make a bug tracking app:
 //initial state is an empty array because we have not dispatched any actions yet   
 console.log('store = ', store.getState());
 
+const unsubscribe = store.subscribe(() => {
+  // logs changes to state, whenever it changes you want to refresh the UI
+  // this is where you would do a react rerender 
+  // UI components should subscribe to the store so they are notified when the state of the store changes 
+  // this returns a function which can be used to unsubscribe from the store 
+  // should unsubscribe from the store if the current subscribed component is not going to be visible, this prevents memory leaks 
+  // after you unsubscribe, you will not be notified of further action dispatches
+  console.log("store changed!", store.getState());
+});
+
+
+
 store.dispatch({
   type: "bugAdded",
   payload: {
@@ -171,6 +183,7 @@ store.dispatch({
   }
 })
 
+unsubscribe();
 //now the state has an object in it
 console.log('store after dispatch 1 = ', store.getState())
 
