@@ -1,7 +1,10 @@
+// REDUCERS are pure functions, they always return the same results given the same arguments, they have no side effects and they depend on nothing outside of their scope
+
+
 let lastId = 0;
 
 //set the initial state using a default argument
-function reducer(state = [], action) {
+export default function reducer(state = [], action) {
   if(action.type === "bugAdded") {
     return [
       ...state, 
