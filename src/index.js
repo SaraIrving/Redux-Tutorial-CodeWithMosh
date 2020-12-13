@@ -2,7 +2,7 @@ import { compose, pipe } from "lodash/fp"; // fp = functional programming
 import { Map } from "immutable";
 import { produce } from "immer";
 import store from "./store";
-import * as actions from './actionTypes';
+import { bugAdded } from './actions';
 
 console.log("Hello World!");
 
@@ -177,12 +177,17 @@ const unsubscribe = store.subscribe(() => {
 
 
 
-store.dispatch({
-  type: actions.BUG_ADDED,
-  payload: {
-    description: "Bug1"
-  }
-})
+// store.dispatch({
+//   type: actions.BUG_ADDED,
+//   payload: {
+//     description: "Bug1"
+//   }
+// })
+
+// refactor to use bugAdded function instead of hard coding action object
+// give it the description as an argument 
+store.dispatch(bugAdded('Bug 1'));
+
 
 unsubscribe();
 //now the state has an object in it
@@ -206,4 +211,8 @@ console.log('store after dispatch 2 = ', store.getState());
 3- the it will notify the subscribers that there has been a change to the state
 
 ** DRY up code by creating an action types file where the type strings are set/can be easily updates, then import them throughout your code**
+
+** DRY up code by creating a function which will form the action object for us instead of having to hard code it every time we want to dispatch an action = action creator**
+
+
 */
