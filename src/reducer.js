@@ -1,5 +1,7 @@
 // REDUCERS are pure functions, they always return the same results given the same arguments, they have no side effects and they depend on nothing outside of their scope
 
+//import { BUG_REMOVED, BUG_ADDEd } from './actionTypes';
+import * as actions from './actionTypes';
 
 let lastId = 0;
 
