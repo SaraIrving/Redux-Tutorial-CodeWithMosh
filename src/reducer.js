@@ -14,8 +14,9 @@ export default function reducer(state = [], action) {
         resolved: false
       }
     ];
-  } else if (action.type =="bugRemoved") {
-    return state.filter(bug => bug.id !== bug.payload.id)
+  } else if (action.type === "bugRemoved") {
+    console.log("In bug removed!")
+    return state.filter(bug => bug.id !== action.payload.id)
   }
 
   //  // could also implement with switch/case instead of if/else
