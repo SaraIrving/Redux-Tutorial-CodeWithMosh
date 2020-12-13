@@ -135,10 +135,21 @@ console.log('updatedBook = ', updatedBook)
 
 /*
 REDUX applications: 
+Make a bug tracking app: 
+
 1- Design the store
 2- Define the actions
 3- Create 1+ reducers
 4- Set up the store based on your reducers
 
 - add redux to your project, use v 4.0 
+
+1- Design the store:
+  - an object with property bugs which is an array or objects 
+
+2- Define the actions: 
+(actions are plain JS objects that describe what just happened, they should have two properties, type which is a string(or any other type of data which is serializable, allowing it to be stored on disc and retrieved later, usually string with uppercase letters and words separated by underscores) and descriptions which is a string )
+  - add a bug
+  - mark a bug as resolved
+  - delete a bug 
 */
