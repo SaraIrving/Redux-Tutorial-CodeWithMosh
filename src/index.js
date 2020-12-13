@@ -1,6 +1,7 @@
 import { compose, pipe } from "lodash/fp"; // fp = functional programming
 import { Map } from "immutable";
 import { produce } from "immer";
+import store from "./store";
 
 console.log("Hello World!");
 
@@ -148,8 +149,12 @@ Make a bug tracking app:
   - an object with property bugs which is an array or objects 
 
 2- Define the actions: 
-(actions are plain JS objects that describe what just happened, they should have two properties, type which is a string(or any other type of data which is serializable, allowing it to be stored on disc and retrieved later, usually string with uppercase letters and words separated by underscores) and descriptions which is a string )
+(actions are plain JS objects that describe what just happened, they should have two properties, type which is a string(or any other type of data which is serializable, allowing it to be stored on disc and retrieved later, usually string with uppercase letters and words separated by underscores) and payload property which is typically an object which has a few properties nested within in(contains the minimum info we need about an action) - does not have to be this structure but this is convention and most universally usable )
   - add a bug
   - mark a bug as resolved
   - delete a bug 
+
+3- Build your Reducer:
+['[']]
 */
+
