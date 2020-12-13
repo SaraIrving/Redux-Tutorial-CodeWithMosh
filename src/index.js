@@ -2,6 +2,7 @@ import { compose, pipe } from "lodash/fp"; // fp = functional programming
 import { Map } from "immutable";
 import { produce } from "immer";
 import store from "./store";
+import * as actions from './actionTypes';
 
 console.log("Hello World!");
 
@@ -177,7 +178,7 @@ const unsubscribe = store.subscribe(() => {
 
 
 store.dispatch({
-  type: "bugAdded",
+  type: actions.BUG_ADDED,
   payload: {
     description: "Bug1"
   }
@@ -189,10 +190,20 @@ console.log('store after dispatch 1 = ', store.getState())
 
 //remove the bug from the state
 store.dispatch({
-  type: "bugRemoved",
+  type: actions.BUG_REMOVED,
   payload: {
     id: 1
   }
 })
 
-console.log('store after dispatch 2 = ', store.getState())
+console.log('store after dispatch 2 = ', store.getState());
+
+
+//REDUX WORKFLOW: 
+/*
+1- when you dispatch an action, the store will call a reducer and give it the current state and an action
+2- based on the type of the action we will get the new state returned from the reducer
+3- the it will notify the subscribers that there has been a change to the state
+
+** DRY up code by creating an action types file where the type strings are set/can be easily updates, then import them throughout your code**
+*/
