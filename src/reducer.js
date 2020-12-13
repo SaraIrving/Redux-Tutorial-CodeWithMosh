@@ -19,6 +19,16 @@ export default function reducer(state = [], action) {
   } else if (action.type === actions.BUG_REMOVED) {
     console.log("In bug removed!")
     return state.filter(bug => bug.id !== action.payload.id)
+  } else if (action.type === actions.BUG_RESOLVED) {
+    console.log("In bug resolved!!")
+    const stateCopy = [...state]
+    stateCopy.forEach(bug => {
+      if(bug.description === action.payload.description) {
+        bug.resolved = true;
+      }
+    })
+    console.log('stateCopy = ', stateCopy)
+    return stateCopy;
   }
 
   //  // could also implement with switch/case instead of if/else

@@ -2,7 +2,7 @@ import { compose, pipe } from "lodash/fp"; // fp = functional programming
 import { Map } from "immutable";
 import { produce } from "immer";
 import store from "./store";
-import { bugAdded, bugRemoved } from './actions';
+import { bugAdded, bugRemoved, bugResolved } from './actions';
 
 console.log("Hello World!");
 
@@ -203,6 +203,8 @@ console.log('store after dispatch 1 = ', store.getState())
 //     id: 1
 //   }
 // })
+
+store.dispatch(bugResolved("Bug 1"))
 
 store.dispatch(bugRemoved(1))
 console.log('store after dispatch 2 = ', store.getState());
