@@ -7,7 +7,7 @@ let lastId = 0;
 
 //set the initial state using a default argument
 export default function reducer(state = [], action) {
-  if(action.type === "bugAdded") {
+  if(action.type === actions.BUG_ADDED) {
     return [
       ...state, 
       {
@@ -16,7 +16,7 @@ export default function reducer(state = [], action) {
         resolved: false
       }
     ];
-  } else if (action.type === "bugRemoved") {
+  } else if (action.type === actions.BUG_REMOVED) {
     console.log("In bug removed!")
     return state.filter(bug => bug.id !== action.payload.id)
   }
