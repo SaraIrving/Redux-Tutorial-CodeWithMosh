@@ -158,3 +158,28 @@ Make a bug tracking app:
 ['[']]
 */
 
+//store is an object with methods, has a dispatch method and a subscribe method which notifies anytime someone subscribes to the store and the state of the store changes-used by the UI layer, also a method to get the current state of the store
+  // no method to get the state of the store, to change the state of the store we must dispatch an action (**this is fundamental to REDUX**)
+
+//initial state is an empty array because we have not dispatched any actions yet   
+console.log('store = ', store.getState());
+
+store.dispatch({
+  type: "bugAdded",
+  payload: {
+    description: "Bug1"
+  }
+})
+
+//now the state has an object in it
+console.log('store after dispatch 1 = ', store.getState())
+
+//remove the bug from the state
+store.dispatch({
+  type: "bugRemoved",
+  payload: {
+    id: 1
+  }
+})
+
+console.log('store after dispatch 2 = ', store.getState())
